@@ -1,38 +1,26 @@
-# Data-analysis-001: Airline Passenger Satisfaction Analysis
+# Data-analysis-001: Data Analyst Practice Portfolio
 
-SQL and Python analysis of airline passenger satisfaction data, built as hands-on practice ahead of a Data Analyst application.
+Hands-on SQL, Excel, and Power BI practice built ahead of a Data Analyst application, using public datasets to demonstrate real analytical workflows: querying, reconciliation, visualization, and outlier detection.
 
-## Dataset
-Airline Passenger Satisfaction dataset (Kaggle), ~26,000 rows covering passenger demographics, service ratings, flight details, delays, and overall satisfaction.
+## Projects
 
-## Tools
-- SQLite for querying (loaded from CSV via pandas)
-- Python (pandas, matplotlib) for data loading and visualization
-- VS Code with the SQLite extension
+### [Dataset 1: Airline Passenger Satisfaction](./dataset-1-sql)
+SQL analysis (SQLite) of ~26,000 airline passenger records.
+- Grouped satisfaction rates by class and customer loyalty, found a 66-point satisfaction gap between Business/Loyal (74.7%) and Eco Plus/disloyal (8.5%) customers
+- Tested whether flight delays drive dissatisfaction, found only an 8.6-point gap, delay alone isn't the primary driver
+- Used a window function to rank the top 3 longest flights per cabin class
+- Visualized findings with a grouped bar chart (Python/matplotlib)
 
-## Files
-- `load_data.py` — loads the raw CSV into a local SQLite database (`airline.db`)
-- `visualization.py` — queries the database and generates a satisfaction chart
-- `satisfaction_chart.png` — output visualization
-- `test.csv` — source dataset
+### Dataset 2: Superstore Sales Reconciliation (Excel)
+Excel-based reconciliation and outlier detection on ~10,000 retail orders.
+- Built a pivot table summarizing Sales and Profit by Region and Category, surfaced a loss-making Region/Category combination (Central/Furniture) despite strong sales volume
+- Built an XLOOKUP-based price reconciliation system comparing actual vs. expected unit price, flagging mismatches over 10%
+- Used conditional formatting to flag high-risk orders (discount over 40% with negative profit), found 933 orders (9.3% of all orders) matching this pattern
 
-## Analysis
-
-**1. Satisfaction by Class and Customer Type**
-Grouped passengers by cabin class and loyalty status, calculating the percent satisfied in each group.
-
-Key finding: Business class loyal customers report 74.7% satisfaction, versus just 8.5% for Eco Plus disloyal customers, a 66-point gap. Class and loyalty status matter far more to satisfaction than any single service factor.
-
-**2. Delay Impact**
-Compared satisfaction rates for passengers delayed over 30 minutes versus 30 minutes or less.
-
-Key finding: the gap is only 8.6 points (45.1% vs 36.5%), smaller than expected. Delay alone isn't the primary driver of dissatisfaction, the class/loyalty split above matters more.
-
-**3. Longest Flights by Class**
-Used a window function (`ROW_NUMBER() OVER PARTITION BY`) to rank and extract the top 3 longest flights within each cabin class.
-
-## Visualization
-`satisfaction_chart.png` shows a grouped bar chart of satisfaction rate by class and customer type, visualizing the finding from Analysis 1.
+## Tools Used
+- SQLite, Python (pandas, matplotlib)
+- Excel/WPS Office (Pivot Tables, XLOOKUP, Conditional Formatting)
+- VS Code, Git/GitHub
 
 ## Next Steps
-Excel reconciliation practice and a Power BI dashboard build are planned as follow-on exercises in this series.
+Power BI dashboard build (Dataset 3) planned as the final project in this series.
